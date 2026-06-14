@@ -1,0 +1,17 @@
+{
+  "extends": ["config:recommended"],
+  "labels": ["type: dependencies"],
+  "minimumReleaseAge": "3 days",
+  "packageRules": [
+    {
+      "matchPackageNames": ["node"],
+      "enabled": false
+    },
+    {
+      "matchPackageNames": ["oxfmt", "oxlint", "oxlint-tsgolint"],
+      "groupName": "oxlint packages"
+    }
+  ],
+  "prCreation": "not-pending",
+  "semanticCommits": "enabled"
+}
