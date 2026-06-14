@@ -1,14 +1,14 @@
-import { GoogleAnalytics } from '@next/third-parties/google';
-import type { Metadata } from 'next';
-import { Geist } from 'next/font/google';
+import { GoogleAnalytics } from "@next/third-parties/google";
+import type { Metadata } from "next";
+import { Geist } from "next/font/google";
 
-import { clientEnv } from '@/lib/env/client';
+import { clientEnv } from "@/lib/env/client";
 
-import './globals.css';
+import "./globals.css";
 
 const geistSans = Geist({
-  variable: '--font-geist-sans',
-  subsets: ['latin'],
+  variable: "--font-geist-sans",
+  subsets: ["latin"],
 });
 
 export const metadata: Metadata = {
@@ -23,7 +23,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${geistSans.variable}`}>{children}</body>
-      {clientEnv.NEXT_PUBLIC_GA_ID ? <GoogleAnalytics gaId={clientEnv.NEXT_PUBLIC_GA_ID} /> : null}
+      <GoogleAnalytics gaId="G-M31DVHBBZ7" />
     </html>
   );
 }
