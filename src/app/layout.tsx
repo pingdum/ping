@@ -1,8 +1,10 @@
 import { GoogleAnalytics } from "@next/third-parties/google";
 import type { Metadata } from "next";
 import { Geist } from "next/font/google";
+import { Suspense } from "react";
 
-import { clientEnv } from "@/lib/env/client";
+import { Nav } from "./nav";
+import { NavigationTracker } from "./navigation-tracker";
 
 import "./globals.css";
 
@@ -22,8 +24,14 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${geistSans.variable}`}>{children}</body>
+      <body className={`${geistSans.variable}`}>
+        <Nav />
+        {children}
+      </body>
       <GoogleAnalytics gaId="G-M31DVHBBZ7" />
+      <Suspense fallback={null}>
+        <NavigationTracker />
+      </Suspense>
     </html>
   );
 }
