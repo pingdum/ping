@@ -3,8 +3,10 @@ import type { Metadata } from "next";
 import { Geist } from "next/font/google";
 import { Suspense } from "react";
 
+import { DebugPanel } from "./debug-panel";
 import { Nav } from "./nav";
 import { NavigationTracker } from "./navigation-tracker";
+import { UserGate } from "./user-gate";
 
 import "./globals.css";
 
@@ -25,8 +27,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${geistSans.variable}`}>
+        <UserGate />
         <Nav />
         {children}
+        <DebugPanel />
       </body>
       <GoogleAnalytics gaId="G-M31DVHBBZ7" />
       <Suspense fallback={null}>

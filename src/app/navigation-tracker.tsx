@@ -4,6 +4,8 @@ import { sendGAEvent } from '@next/third-parties/google';
 import { usePathname, useSearchParams } from 'next/navigation';
 import { useEffect, useRef } from 'react';
 
+import { getGaUser } from '@/lib/analytics';
+
 /**
  * Tracks client-side route changes in the App Router.
  *
@@ -36,6 +38,7 @@ export function NavigationTracker() {
       page_location: window.location.href,
       page_path: url,
       page_referrer: previousUrl.current,
+      username: getGaUser() ?? '(chưa nhập tên)',
     });
 
     previousUrl.current = url;
